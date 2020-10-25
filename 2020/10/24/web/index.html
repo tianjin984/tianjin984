@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a: 2020/10 | Hexo</title>
+  <title itemprop="name">什么是前后端分离 | Hexo</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -324,91 +324,164 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      什么是前后端分离</h1>
+      <p class="entry-census">
+        <span>
+          <a href="tianjin20.cn">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href="tianjin20.cn">tianjin</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-10-24<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      10月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/10/24/life/">
-                          <span style="color:#0bf;">
-                          24日21:22:18</span>
-                          life
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/10/24/web/">
-                          <span style="color:#0bf;">
-                          24日17:30:14</span>
-                          什么是前后端分离
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/10/24/spring%20boot/">
-                          <span style="color:#0bf;">
-                          24日17:30:14</span>
-                          Spring Boot
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <blockquote>
+<p>概念:前端代码后端代码分开写</p>
+</blockquote>
+<p>非前后端分离会发生的问题</p>
+<ul>
+<li>传统web，前端由jsp开发，jsp非后端开发独立完成</li>
+<li><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/image-20201017220216561.png"></li>
+<li>前端–&gt;html静态页面–&gt;后端–&gt;jsp（后端可能看不懂前端）</li>
+<li><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/image-20201017220216561.png"></li>
+</ul>
+<blockquote>
+<p>前端只需要独立编写客户端代码，后端只需要独立编写服务器代码提供数据接口即可。</p>
+</blockquote>
+<blockquote>
+<p>前端通过Ajax请求来访问后端的数据接口，将Model展现到View中即可</p>
+</blockquote>
+<blockquote>
+<p>前端开发者只需要提前约定好接口文档（url，参数，数据类型）分别独立开发，前端可以用假的数据进行测试，不依赖于后端，解耦，极大提高开发效率。</p>
+</blockquote>
+<p>前后端分离解决了一个问题</p>
+<ul>
+<li>那就是静态资源(页面)和动态资源(数据接口)的分离，以前的jsp因为是直接把数据嵌入页面的导致页面资源也是动态的，接下来需要引入cdn缓存的概念，涉及的是运维方面的知识，静态资源一旦进入缓存，是可以有效降低服务器的负载的，这才是重点，也就是性能的提升。</li>
+</ul>
+<p>所以前后端分离将一个单体应用拆分为两个独立的应用，前后端以json格式进行数据交互！！！！</p>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/Screenshot_20201025_012848_com.eg.android.AlipayG.png"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/Screenshot_20201024_154959_com.tencent.mm.png"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre half previous">
+          
+            <a href="/2020/10/24/life/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                life</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+          
+            <div class="post-nepre half next">
+          
+            <a href="/2020/10/24/spring%20boot/" rel="next">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/sptring.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/sptring.png">
+              </div>
+              <span class="label">
+              Next Post</span>
+              <div class="info">
+                <h3>
+                Spring Boot</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+      </section>
+      
+  <script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+      var gitalk = new Gitalk({
+          clientID: 'a0a238f6f86e877f202f',
+          clientSecret: '1353197437ecf04308dcf29ebced4e431c8eab6d',
+          id: window.location.pathname,
+          repo: 'tianjin984.github.io',
+          owner: 'tianjin984',
+          admin: 'tianjin984'
+      })
+      gitalk.render('gitalk-container')
+    </script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="tianjin20.cn" class="profile gravatar"><img src="" itemprop="image" alt="tianjin" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">TianJin</span>
+            <h3 itemprop="name">
+            <a href="tianjin20.cn" itemprop="url" rel="author">tianjin</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>我比较懒</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">

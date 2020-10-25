@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">archive_a: 2020/10 | Hexo</title>
+  <title itemprop="name">Spring Boot | Hexo</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -324,91 +324,186 @@
   </div>
 </header>
 
-      <div class="blank" style="padding-top: 75px;">
-</div>
-<div id="content" class="site-content">
-  <div id="main">
-    <header class="page-header">
-      <h1 class="cat-title">
-      归档</h1>
-      <span class="cat-des">
-        <p>
-        Archives</p>
-      </span>
+      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
+<div class="pattern-center-blank"></div>
+
+  <div class="pattern-center single-center">
+    <!-- 有配图默认渲染第一张 -->
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/sptring.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/sptring.png">
+    </div>
+    <header class="pattern-header single-header">
+      <h1 class="entry-title">
+      Spring Boot</h1>
+      <p class="entry-census">
+        <span>
+          <a href="tianjin20.cn">
+            <img src="">
+          </a>
+        </span>
+        <span>
+          <a href="tianjin20.cn">TianJin</a>
+        </span>
+        <span class="bull">
+        ·</span>
+        2020-10-24<span class="bull">
+        ·</span>
+      <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
-    <div id="main-part">
-      <article class="art">
-        <div class="art-main">
-          <div class="art-content">
-            <div id="archives">
-              <p style="text-align:right;">
-                [<span id="al_expand_collapse" style="cursor: s-resize;">
-                全部展开/收缩</span>
-              ]</p>
-              
-              
-              
-              
-              
-                
-                <h3 class="al_year">2020年</h3>
-              
-              
-                
-                <ul class="al_mon_list">
-                  <li class="al_li">
-                    <span class="al_mon" style="cursor: s-resize;">
-                      10月(<span id="post-num">
-                      3</span>
-                    篇文章)</span>
-                    <ul class="al_post_list" style="">
-              
-                      <li>
-                        <a href="/2020/10/24/life/">
-                          <span style="color:#0bf;">
-                          24日21:22:18</span>
-                          life
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/10/24/web/">
-                          <span style="color:#0bf;">
-                          24日17:30:14</span>
-                          什么是前后端分离
-                        </a>
-                      </li>
-                      
-              
-              
-              
-              
-              
-                      <li>
-                        <a href="/2020/10/24/spring%20boot/">
-                          <span style="color:#0bf;">
-                          24日17:30:14</span>
-                          Spring Boot
-                        </a>
-                      </li>
-                      
-                    </ul>
-                  </li>
-                </ul>
-              
-              
+  </div>
+
+<div id="content" class="site-content">
+  <div id="primary" class="content-area">
+    <main id="main" class="site-main" role="main">
+      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
+        <div class="toc"></div>
+        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
+        
+        <div class="entry-content">
+          <h2 id="spring-boot的基本配置介绍"><a href="#spring-boot的基本配置介绍" class="headerlink" title="spring boot的基本配置介绍"></a>spring boot的基本配置介绍</h2><blockquote>
+<p>pom.xml</p>
+</blockquote>
+<ul>
+<li>spring-boot-dependencies:核心依赖在父工程中！</li>
+<li>引入spring-boot，不需要指定版本，存在版本仓库</li>
+</ul>
+<blockquote>
+<p>spring-boot的启动器</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootApplication</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(SpringbootApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@SpringBootApplication:标注这个类是一个springboot应用，启动类下所有资源被导入    </li>
+</ul>
+<blockquote>
+<p>我们点开@SpringBootApplication</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Sp</span><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(</span></span><br><span class="line"><span class="meta">    excludeFilters = &#123;@Filter(</span></span><br><span class="line"><span class="meta">    type = FilterType.CUSTOM,</span></span><br><span class="line"><span class="meta">    classes = &#123;TypeExcludeFilter.class&#125;</span></span><br><span class="line"><span class="meta">), @Filter(</span></span><br><span class="line"><span class="meta">    type = FilterType.CUSTOM,</span></span><br><span class="line"><span class="meta">    classes = &#123;AutoConfigurationExcludeFilter.class&#125;</span></span><br><span class="line"><span class="meta">)&#125;</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><blockquote>
+<p>@SpringBootConfiguration：spring-boot的配置</p>
+</blockquote>
+<ul>
+<li><pre><code class="java">//点开SpringBootConfiguration
+@Target(&#123;ElementType.TYPE&#125;)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Configuration
+public @interface SpringBootConfiguration &#123;
+    @AliasFor(
+        annotation = Configuration.class
+    )
+    boolean proxyBeanMethods() default true;
+&#125;
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - @Configuration：pring配置类</span><br><span class="line"></span><br><span class="line">  - @Compnent：也是spring boot 的一个组件</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- &gt; @EnableAutoConfiguration：自动配置</span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;JAVA</span><br><span class="line">    @Target(&#123;ElementType.TYPE&#125;)</span><br><span class="line">    @Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">    @Documented</span><br><span class="line">    @Inherited</span><br><span class="line">    @AutoConfigurationPackage</span><br><span class="line">    @Import(&#123;AutoConfigurationImportSelector.class&#125;)</span><br><span class="line">    public @interface EnableAutoConfiguration &#123;</span><br><span class="line">        String ENABLED_OVERRIDE_PROPERTY &#x3D; &quot;spring.boot.enableautoconfiguration&quot;;</span><br><span class="line">    </span><br><span class="line">        Class&lt;?&gt;[] exclude() default &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">        String[] excludeName() default &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure></code></pre>
+</li>
+<li><p>@AutoConfigurationPackage：自动配置包</p>
+</li>
+<li><p>@Import({AutoConfigurationImportSelector.class})：自动配置导入选择器</p>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>超多的自动配置为什么没有生效，需要导入对应的start才能生效，因为注解@ConditionalOnXXX（核心注解）：如果这里面的条件满足，配置才会生效。不导入@ConditionalOnXXX（核心注解）下回报红。</p>
+</blockquote>
+<p>结论：所有的springboot配置都是在启动的时候扫描并加载：spring.factory    ，所有的自动配置类都在spring.factory都在里面，</p>
+<p>但是不一定生效，因为注解@ConditionalOnXXX，要判断它的条件是否成立，只需要导入对应的start，就有对应的启动器，我们自动装配生效，配置成功！！！！</p>
+<ul>
+<li>springboot启动时，从类路径/MATA-INF/spring.factory获取指定值</li>
+<li>然后将这些自动配置类导入容器，自动配置就会生效，进行自定配置</li>
+<li>之前自配的东西，springboot帮我们做了</li>
+<li>整合java ee，解决方案和自动配合的东西都在spring-boot-autoconfigure-2.2.0 Relesaes .jar包</li>
+<li>需要的组件，以类名的方式返回，这些组件就会添加到容器中</li>
+<li>容器存在许多xxxautoConfiguraion（@Bean）就是这些给容器导入了场景所需要的组件，并进行自动配置@Configguration ，javaConfig</li>
+</ul>
+
+        </div>
+        <!-- .entry-content -->
+        <div class="single-reward">
+          <div class="reward-open">赏
+            <div class="reward-main">
+              <ul class="reward-row">
+                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/Screenshot_20201025_012848_com.eg.android.AlipayG.png"></li>
+                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/Screenshot_20201024_154959_com.tencent.mm.png"></li>
+              </ul>
             </div>
           </div>
         </div>
+        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
+        <footer class="post-footer">
+          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
+          <div class="post-tags">
+          </div>
+          <div class="post-share">
+            <div class="social-share sharehidden share-component"></div>
+            <i class="iconfont show-share icon-forward"></i>
+          </div>
+        </footer><!-- .entry-footer -->
       </article>
-    </div>
-  </div>
+      <!-- #post-## -->
+      <div class="toc" style="background: none;"></div>
+      <section class="post-squares nextprev">
+        
+          
+            <div class="post-nepre full previous">
+          
+            <a href="/2020/10/24/web/" rel="prev">
+              <div class="background">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
+              </div>
+              <span class="label">
+              Previous Post</span>
+              <div class="info">
+                <h3>
+                什么是前后端分离</h3>
+                <hr>
+              </div>
+            </a>
+          </div>
+        
+        
+      </section>
+      
+  <script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.1/gitalk.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/yremp/yremp-css@1.3/gitalk.css">
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+      var gitalk = new Gitalk({
+          clientID: 'a0a238f6f86e877f202f',
+          clientSecret: '1353197437ecf04308dcf29ebced4e431c8eab6d',
+          id: window.location.pathname,
+          repo: 'tianjin984.github.io',
+          owner: 'tianjin984',
+          admin: 'tianjin984'
+      })
+      gitalk.render('gitalk-container')
+    </script>
+
+      <section class="author-profile">
+        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
+          <a href="tianjin20.cn" class="profile gravatar"><img src="" itemprop="image" alt="TianJin" height="70" width="70"></a>
+          <div class="meta">
+            <span class="title">TianJin</span>
+            <h3 itemprop="name">
+            <a href="tianjin20.cn" itemprop="url" rel="author">TianJin</a>
+            </h3>
+          </div>
+        </div>
+        <hr>
+        <p><i class="iconfont icon-write"></i>我这里是我的spring boot学习记录</p>
+      </section>
+    </main><!-- #main -->
+  </div><!-- #primary -->
 </div>
+
+
 
     </div>    
     <div class="ins-search">
