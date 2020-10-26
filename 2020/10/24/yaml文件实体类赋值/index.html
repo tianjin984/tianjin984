@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">LIFE | TJ&#39;s blog</title>
+  <title itemprop="name">yaml文件实体类赋值 | TJ&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -329,19 +329,19 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      LIFE</h1>
+      yaml文件实体类赋值</h1>
       <p class="entry-census">
         <span>
-          <a href="">
+          <a href="tianjin20.cn">
             <img src="">
           </a>
         </span>
         <span>
-          <a href=""></a>
+          <a href="tianjin20.cn">tianjin</a>
         </span>
         <span class="bull">
         ·</span>
@@ -359,12 +359,60 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>时间：半个月</p>
-<p>折腾：为更好的美化和给博客添加新功能，每天都在查资料，加班</p>
-<p>域名：域名的申请备案也花了很多时间</p>
-<p>结局: 看到自己完成了博客网站的搭建，满满的成就感</p>
-<p>终于搭好了自己的博客，yeah！！！！！！！！！</p>
-<p>以后更有动力写博客了！！</p>
+          <h3 id="yaml文件实体类赋值"><a href="#yaml文件实体类赋值" class="headerlink" title="yaml文件实体类赋值"></a>yaml文件实体类赋值</h3><blockquote>
+<p>实体类Person</p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> cn<span class="token punctuation">.</span>tj<span class="token punctuation">.</span>springboot<span class="token punctuation">.</span>entity<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>boot<span class="token punctuation">.</span>context<span class="token punctuation">.</span>properties<span class="token punctuation">.</span>ConfigurationProperties<span class="token punctuation">;</span>
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>springframework<span class="token punctuation">.</span>stereotype<span class="token punctuation">.</span>Component<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>List<span class="token punctuation">;</span>
+
+<span class="token annotation punctuation">@Component</span>
+<span class="token annotation punctuation">@ConfigurationProperties</span><span class="token punctuation">(</span>prefix <span class="token operator">=</span> <span class="token string">"person"</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Person</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">private</span> Integer id<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> String name<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span> hobby<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> Integer <span class="token function">getId</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> id<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setId</span><span class="token punctuation">(</span>Integer id<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>id <span class="token operator">=</span> id<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> String <span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> name<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setName</span><span class="token punctuation">(</span>String name<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span> <span class="token function">getHobby</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> hobby<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">setHobby</span><span class="token punctuation">(</span>List<span class="token operator">&lt;</span>String<span class="token operator">></span> hobby<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>hobby <span class="token operator">=</span> hobby<span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<p>yaml文件</p>
+<pre class=" language-yaml"><code class="language-yaml"><span class="token key atrule">person</span><span class="token punctuation">:</span>
+  <span class="token key atrule">id</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> tianjin$&amp;<span class="token comment" spellcheck="true">#123;random.uuid&amp;#125;  #yaml文件可以加占位符$&amp;#123;random.uuid&amp;#125;</span>
+  <span class="token key atrule">hobby</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> sleep
+    <span class="token punctuation">-</span> food
+    <span class="token punctuation">-</span> paly</code></pre>
+<blockquote>
+<p>通过@ConfigurationProperties(prefix = “person”)获取实体类属性的值 ，只有组件是容器中的组件，才能使用容器提供的@ConfigurationProperties功能</p>
+</blockquote>
+<p>默认根据application.yaml配置文件，如果要加载指定的yaml文件，通过@PropertySource(value = “class:path:(yaml文件)”)，取值@Value（“${name}”</p>
 
         </div>
         <!-- .entry-content -->
@@ -396,15 +444,15 @@
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/10/26/sprint%20boot%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB/" rel="prev">
+            <a href="/2020/10/24/%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86%E5%95%86%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                </h3>
+                解决访问代理商问题</h3>
                 <hr>
               </div>
             </a>
@@ -414,15 +462,15 @@
           
             <div class="post-nepre half next">
           
-            <a href="/2020/10/24/web/" rel="next">
+            <a href="/2020/10/24/JSR303%E6%A0%A1%E9%AA%8C/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/tenyuan.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/tenyuan.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                什么是前后端分离</h3>
+                JSR303校验</h3>
                 <hr>
               </div>
             </a>
@@ -447,16 +495,16 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <a href="tianjin20.cn" class="profile gravatar"><img src="" itemprop="image" alt="tianjin" height="70" width="70"></a>
           <div class="meta">
             <span class="title">TianJin</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
+            <a href="tianjin20.cn" itemprop="url" rel="author">tianjin</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i></p>
+        <p><i class="iconfont icon-write"></i>我比较懒</p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->

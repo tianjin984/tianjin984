@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">LIFE | TJ&#39;s blog</title>
+  <title itemprop="name">spring boot多环境配置及文件位置 | TJ&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -329,19 +329,19 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/浅春-桃花妖4k动漫壁纸_彼岸图网.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/浅春-桃花妖4k动漫壁纸_彼岸图网.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      LIFE</h1>
+      spring boot多环境配置及文件位置</h1>
       <p class="entry-census">
         <span>
-          <a href="">
+          <a href="tianjin20.cn">
             <img src="">
           </a>
         </span>
         <span>
-          <a href=""></a>
+          <a href="tianjin20.cn">TianJin</a>
         </span>
         <span class="bull">
         ·</span>
@@ -359,12 +359,109 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <p>时间：半个月</p>
-<p>折腾：为更好的美化和给博客添加新功能，每天都在查资料，加班</p>
-<p>域名：域名的申请备案也花了很多时间</p>
-<p>结局: 看到自己完成了博客网站的搭建，满满的成就感</p>
-<p>终于搭好了自己的博客，yeah！！！！！！！！！</p>
-<p>以后更有动力写博客了！！</p>
+          <h1 id="spring-boot多环境配置及文件位置"><a href="#spring-boot多环境配置及文件位置" class="headerlink" title="spring boot多环境配置及文件位置"></a>spring boot多环境配置及文件位置</h1><blockquote>
+<p>spring boot 配置文件（application.yaml / xml）优先级：官方文档</p>
+</blockquote>
+<p><code>file:./config/</code>  - 优先级最高（项目根路径下的<code>config</code>）</p>
+<p><code>file:./</code>  - 优先级第二  -（项目根路径下）</p>
+<p><code>classpath:/config/</code>  - 优先级第三（项目<code>resources/config</code>下）</p>
+<p><code>classpath:/</code>  - 优先级第四（项目<code>resources</code>根目录）</p>
+<h3 id="spring-boot切换环境配置"><a href="#spring-boot切换环境配置" class="headerlink" title="spring boot切换环境配置"></a>spring boot切换环境配置</h3><ul>
+<li>使用spring.profiles.active = ???   切换配置环境,如下 |</li>
+</ul>
+<pre class=" language-yaml"><code class="language-yaml"> spring
+    <span class="token key atrule">profiles</span><span class="token punctuation">:</span>
+        <span class="token key atrule">active</span><span class="token punctuation">:</span> 配置文件名</code></pre>
+<pre class=" language-xml"><code class="language-xml">spring.profiles.active=配置文件名</code></pre>
+<ul>
+<li>但是配置文件太多文件目录可能有点乱，那么yaml的优势就来了，如果你有多个配置，可以放在一个yaml中</li>
+</ul>
+<pre class=" language-yml"><code class="language-yml">server: #默认
+  port: 8080
+
+server:
+  port: 8089
+spring: #one配置
+  profiles: one
+
+server:
+  port:9090
+spring: #two配置
+  profiles: two
+
+ spring
+    profiles:
+        active: 配置文件名</code></pre>
+<p>如果我们要选择要用的配置，可以使用spring.profiles.active=配置名在一个yaml文件中切换（没有profiles属性的是默认选择）。 </p>
+<h2 id="spring-boot自动配置"><a href="#spring-boot自动配置" class="headerlink" title="spring boot自动配置"></a>spring boot自动配置</h2><p>spring boot的@SpringBootApplication下的源码如下</p>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>ElementType<span class="token punctuation">.</span>TYPE<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Inherited</span>
+<span class="token annotation punctuation">@SpringBootConfiguration</span>
+<span class="token annotation punctuation">@EnableAutoConfiguration</span>
+<span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>
+    excludeFilters <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token annotation punctuation">@Filter</span><span class="token punctuation">(</span>
+    type <span class="token operator">=</span> FilterType<span class="token punctuation">.</span>CUSTOM<span class="token punctuation">,</span>
+    classes <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>TypeExcludeFilter<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token annotation punctuation">@Filter</span><span class="token punctuation">(</span>
+    type <span class="token operator">=</span> FilterType<span class="token punctuation">.</span>CUSTOM<span class="token punctuation">,</span>
+    classes <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>AutoConfigurationExcludeFilter<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span>
+​````````````````````````````````下面还有很多</code></pre>
+<blockquote>
+<p>@EnableAutoConfiguration 和自动配置相关，打开源码</p>
+</blockquote>
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>ElementType<span class="token punctuation">.</span>TYPE<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Inherited</span>
+<span class="token annotation punctuation">@AutoConfigurationPackage</span>
+<span class="token annotation punctuation">@Import</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>AutoConfigurationImportSelector<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token keyword">public</span> @<span class="token keyword">interface</span> <span class="token class-name">EnableAutoConfiguration</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    String ENABLED_OVERRIDE_PROPERTY <span class="token operator">=</span> <span class="token string">"spring.boot.enableautoconfiguration"</span><span class="token punctuation">;</span>
+
+    Class<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">></span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">exclude</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+
+    String<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token function">excludeName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+<blockquote>
+<p>在@EnableAutoConfiguration下存在@Import({AutoConfigurationImportSelector.class}) ，这个就是选择导入，从这里进入找到</p>
+<p>getAutoConfigurationEntry(省略了很多)，这个实体从</p>
+<p>List<String> configurations = this.getCandidateConfigurations(annotationMetadata, attributes);这个里面获得实体，然后或偶去配置，获取配置从</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">protected</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span> <span class="token function">getCandidateConfigurations</span><span class="token punctuation">(</span>AnnotationMetadata metadata<span class="token punctuation">,</span> AnnotationAttributes attributes<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     List<span class="token operator">&lt;</span>String<span class="token operator">></span> configurations <span class="token operator">=</span> SpringFactoriesLoader<span class="token punctuation">.</span><span class="token function">loadFactoryNames</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getSpringFactoriesLoaderFactoryClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBeanClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     Assert<span class="token punctuation">.</span><span class="token function">notEmpty</span><span class="token punctuation">(</span>configurations<span class="token punctuation">,</span> <span class="token string">"No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">return</span> configurations<span class="token punctuation">;</span>
+ <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<p>这里获取配置this.getBeanClassLoader() 标注了注解类，所以能够找到，在上面的private ClassLoader beanClassLoader;这里，</p>
+<p>然后从这里在这里返回已经标志了的类,如下</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">protected</span> List<span class="token operator">&lt;</span>String<span class="token operator">></span> <span class="token function">getCandidateConfigurations</span><span class="token punctuation">(</span>AnnotationMetadata metadata<span class="token punctuation">,</span> AnnotationAttributes attributes<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     List<span class="token operator">&lt;</span>String<span class="token operator">></span> configurations <span class="token operator">=</span>                          SpringFactoriesLoader<span class="token punctuation">.</span><span class="token function">loadFactoryNames</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getSpringFactoriesLoaderFactoryClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getBeanClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     Assert<span class="token punctuation">.</span><span class="token function">notEmpty</span><span class="token punctuation">(</span>configurations<span class="token punctuation">,</span> <span class="token string">"No auto configuration classes found in META-INF/spring.factories. If you are using a custom packaging, make sure that file is correct."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+     <span class="token keyword">return</span> configurations<span class="token punctuation">;</span>
+ <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+从<span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getSpringFactoriesLoaderFactoryClass</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 这里返回
+<span class="token keyword">protected</span> ClassLoader <span class="token function">getBeanClassLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+     <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>beanClassLoader<span class="token punctuation">;</span>
+ <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+<p>spring boot读取的资源自动装配，最终指向配置文件FACTORIES_RESOURCE_LOCATION = “META-INF/spring.factories”，源码如下</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">class</span> <span class="token class-name">SpringFactoriesLoader</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> String FACTORIES_RESOURCE_LOCATION <span class="token operator">=</span> <span class="token string">"META-INF/spring.factories"</span><span class="token punctuation">;</span>
+ <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Log logger <span class="token operator">=</span> LogFactory<span class="token punctuation">.</span><span class="token function">getLog</span><span class="token punctuation">(</span>SpringFactoriesLoader<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+ <span class="token keyword">private</span> <span class="token keyword">static</span> <span class="token keyword">final</span> Map<span class="token operator">&lt;</span>ClassLoader<span class="token punctuation">,</span> MultiValueMap<span class="token operator">&lt;</span>String<span class="token punctuation">,</span> String<span class="token operator">>></span> cache <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ConcurrentReferenceHashMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token keyword">private</span> <span class="token function">SpringFactoriesLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+ <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+</blockquote>
+<p><img src="C:\Users\蔡小困\AppData\Roaming\Typora\typora-user-images\image-20201019234922649.png" alt="image-20201019234922649"></p>
+<blockquote>
+<p>这个文件特别牛批！！！！！！我们的配置和它密切相关，无论哪一个，都带有注释@Configration 被配置！！！！！spring帮我们配置了很多东西，我们只需要直接用，spring boot牛皮！！！！！！！！！！！！！！！！</p>
+<p>spring的底层注解@CondionalOnXXXX，根据不同的条件，判断当前配置或者类是否生效！！！！！！！！！</p>
+</blockquote>
+<p>​    xxxAutoConfiguration  《—- xxxProperties   《—– 配置文件</p>
 
         </div>
         <!-- .entry-content -->
@@ -394,39 +491,22 @@
       <section class="post-squares nextprev">
         
           
-            <div class="post-nepre half previous">
+            <div class="post-nepre full previous">
           
-            <a href="/2020/10/26/sprint%20boot%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB/" rel="prev">
+            <a href="/2020/10/24/JSR303%E6%A0%A1%E9%AA%8C/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/tenyuan.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/tenyuan.jpg">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                </h3>
+                JSR303校验</h3>
                 <hr>
               </div>
             </a>
           </div>
         
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2020/10/24/web/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                什么是前后端分离</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
         
       </section>
       
@@ -447,16 +527,16 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
+          <a href="tianjin20.cn" class="profile gravatar"><img src="" itemprop="image" alt="TianJin" height="70" width="70"></a>
           <div class="meta">
             <span class="title">TianJin</span>
             <h3 itemprop="name">
-            <a href="" itemprop="url" rel="author"></a>
+            <a href="tianjin20.cn" itemprop="url" rel="author">TianJin</a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i></p>
+        <p><i class="iconfont icon-write"></i>我这里是我的spring boot学习记录</p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->

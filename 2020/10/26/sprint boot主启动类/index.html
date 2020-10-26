@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">LIFE | TJ&#39;s blog</title>
+  <title itemprop="name">TJ&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -327,30 +327,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
 <div class="pattern-center-blank"></div>
 
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      LIFE</h1>
-      <p class="entry-census">
-        <span>
-          <a href="">
-            <img src="">
-          </a>
-        </span>
-        <span>
-          <a href=""></a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2020-10-24<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
-  </div>
-
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
@@ -358,13 +334,42 @@
         <div class="toc"></div>
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
+          <header class="entry-header">
+            <h1 class="entry-title"></h1>
+            <p class="entry-census">&nbsp;·&nbsp;2020-10-26&nbsp;·&nbsp;<span id="busuanzi_value_page_pv"></span>次阅读</p></p>
+
+            <hr>
+          </header>
+        
         <div class="entry-content">
-          <p>时间：半个月</p>
-<p>折腾：为更好的美化和给博客添加新功能，每天都在查资料，加班</p>
-<p>域名：域名的申请备案也花了很多时间</p>
-<p>结局: 看到自己完成了博客网站的搭建，满满的成就感</p>
-<p>终于搭好了自己的博客，yeah！！！！！！！！！</p>
-<p>以后更有动力写博客了！！</p>
+          <h2 id="sprint-boot主启动类"><a href="#sprint-boot主启动类" class="headerlink" title="sprint boot主启动类"></a>sprint boot主启动类</h2><blockquote>
+<p>SpringApplication</p>
+</blockquote>
+<ul>
+<li>推断应用的类型是普通的项目还是web项目</li>
+<li>@SpringBootApplication，启动入口，可以自建一个类标注注解作为spring boot主启动</li>
+</ul>
+<blockquote>
+<p>关于spring boot：自动装配，run（）</p>
+</blockquote>
+<ul>
+<li><p>run（）</p>
+<ul>
+<li>SpringApplication实例初始化：<br>a)、根据classpath里面是否存在特征类（org.springframework.web.context.ConfigurableWebApplicationCobtext）来决定创建为web应用使用<strong>ApplicationContext</strong>类型，还是标准Standalone应用使用的ApplicationContext类型。<br>b)、使用SpringFactoriesLoader在classpath中查找并加载所有可用的<strong>ApplicationContextInitiazier</strong><br>c)、使用SpringFactoriesLoader在classpath中查找并加载所有可用的<strong>ApplicationListener</strong><br>d)、推断并main方法的定义类</li>
+<li>SpringApplication实例初始化完成，遍历SpringFactoriesLoader可以找到并加载的<strong>SpringApplicationRunListnner</strong>，调用他们的start()方法。</li>
+<li>创建并配置当前SpringBoot应用将要使用的<strong>Envrioment</strong>（包括配置要使用的PropertySource以及Profile）</li>
+<li>遍历调用所有SpringApplicationRunListener的environmentPrepared()的方法——即通知【run监听器SpringBoot应用的使用环境已经搭建完成】</li>
+<li>创建对应类型的ApplicationContext，根据条件决定是否添加ShutdownHook，决定是否使用自定义的BeanNameGenerator、ResourceLoader。<strong>将之前准备好的Enviroment设置给创建好的ApplicationContext使用</strong></li>
+<li>完成创建ApplicationContext，通过SpringFactoriesLoader查找并加载classpath中所有可用的<strong>ApplicationContextInitializer</strong>的Initialize（）方法来对ApplicationContext进行进一步的处理</li>
+<li>遍历所有的SpringApplicationRunListenner的contextPrepared（）方法，通知【run监听器】ApplicationContext已经准备好了。</li>
+<li>将之前通过**@EnableAutoConfiguration**获取的所有配置以及其他形式的IOC容器配置加载到已经准备完毕的ApplicationContext</li>
+<li>遍历所有的SpringApplicationRunListener的contextLoaded（）方法，通知【run监听器和ApplicationContext装填完毕】</li>
+<li>调用ApplicationContext的refresh（）——完成填充IOC容器</li>
+<li>查找当前ApplicationContext中是否注册有CommandLineRunner，如果有，则遍历执行它们。</li>
+<li>遍历执行SpringApplicationRunListener的finished（）。——启动完毕</li>
+</ul>
+</li>
+</ul>
 
         </div>
         <!-- .entry-content -->
@@ -393,36 +398,19 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/10/26/sprint%20boot%E4%B8%BB%E5%90%AF%E5%8A%A8%E7%B1%BB/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                </h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/10/24/web/" rel="next">
+            <a href="/2020/10/24/life/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/huyaok.png">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                什么是前后端分离</h3>
+                LIFE</h3>
                 <hr>
               </div>
             </a>
