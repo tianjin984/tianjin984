@@ -26,7 +26,7 @@ function bot_ui_ini() {
     }).then(function () {
         botui.message.add({
             delay: 1100,
-            content: "这里是 Mashiro"
+            content: "这里是 TianJin"
         }).then(function () {
             botui.message.add({
                 delay: 1100,
@@ -90,7 +90,7 @@ function bot_ui_ini() {
                                     botui.action.button({
                                         delay: 1100,
                                         action: [{
-                                            text: "为什么叫Mashiro呢？ 🤔",
+                                            text: "原作者：为什么叫Mashiro呢？ 🤔",
                                             value: "why-mashiro"
                                         }]
                                     }).then(function (a) {

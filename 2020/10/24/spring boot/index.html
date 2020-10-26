@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">Spring Boot | Hexo</title>
+  <title itemprop="name">Spring Boot | TJ&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -86,7 +86,7 @@
   </style>
   <style type="text/css">.site-top .lower nav{display:block !important;}.author-profile i,.post-like a,.post-share .show-share,.sub-text,.we-info a,span.sitename,.post-more i:hover,#pagination a:hover,.post-content a:hover,.float-content i:hover{color:#FE9600}.feature i,.download,.navigator i:hover,.links ul li:before,.ar-time i,span.ar-circle,.object,.comment .comment-reply-link,.siren-checkbox-radio:checked + .siren-checkbox-radioInput:after{background:#FE9600}::-webkit-scrollbar-thumb{background:#FE9600}.download,.navigator i:hover,.link-title,.links ul li:hover,#pagination a:hover,.comment-respond input[type='submit']:hover{border-color:#FE9600}.entry-content a:hover,.site-info a:hover,.comment h4 a,#comments-navi a.prev,#comments-navi a.next,.comment h4 a:hover,.site-top ul li a:hover,.entry-title a:hover,#archives-temp h3,span.page-numbers.current,.sorry li a:hover,.site-title a:hover,i.iconfont.js-toggle-search.iconsearch:hover,.comment-respond input[type='submit']:hover{color:#FE9600}.comments .comments-main{display:block !important;}.comments .comments-hidden{display:none !important;}background-position:center center;background-attachment:inherit;}
   </style>
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.2.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
 
 <body class="page-template page-template-user page-template-page-analytics page-template-userpage-analytics-php page page-id-1297 chinese-font serif isWebKit">
   <script src="https://cdn.jsdelivr.net/gh/wallleap/cdn/js/sakura.js"></script>
@@ -234,9 +234,9 @@
                       </li>
                     
                       <li>
-                        <a href="/tags">
-                          <i class="fa fa-tags" aria-hidden="true"></i>
-                          标签
+                        <a href="/shuoshuo/">
+                          <i class="fa fa-commenting-o fa-commenting" aria-hidden="true"></i>
+                          说说
                         </a>
                       </li>
                     
@@ -369,38 +369,82 @@
 <blockquote>
 <p>spring-boot的启动器</p>
 </blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringbootApplication</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(SpringbootApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<pre class=" language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>dependency</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>groupId</span><span class="token punctuation">></span></span>org.springframework.boot<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>groupId</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>artifactId</span><span class="token punctuation">></span></span>spring-boot-starter-web<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>artifactId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>dependency</span><span class="token punctuation">></span></span></code></pre>
+<h2 id="主程序"><a href="#主程序" class="headerlink" title="主程序"></a>主程序</h2><pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@SpringBootApplication</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">SpringbootApplication</span> <span class="token keyword">extends</span> <span class="token class-name">WebMvcConfigurerAdapter</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        SpringApplication<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>SpringbootApplication<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li>@SpringBootApplication:标注这个类是一个springboot应用，启动类下所有资源被导入    </li>
 </ul>
 <blockquote>
 <p>我们点开@SpringBootApplication</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Sp</span><span class="meta">@Target(&#123;ElementType.TYPE&#125;)</span></span><br><span class="line"><span class="meta">@Retention(RetentionPolicy.RUNTIME)</span></span><br><span class="line"><span class="meta">@Documented</span></span><br><span class="line"><span class="meta">@Inherited</span></span><br><span class="line"><span class="meta">@SpringBootConfiguration</span></span><br><span class="line"><span class="meta">@EnableAutoConfiguration</span></span><br><span class="line"><span class="meta">@ComponentScan(</span></span><br><span class="line"><span class="meta">    excludeFilters = &#123;@Filter(</span></span><br><span class="line"><span class="meta">    type = FilterType.CUSTOM,</span></span><br><span class="line"><span class="meta">    classes = &#123;TypeExcludeFilter.class&#125;</span></span><br><span class="line"><span class="meta">), @Filter(</span></span><br><span class="line"><span class="meta">    type = FilterType.CUSTOM,</span></span><br><span class="line"><span class="meta">    classes = &#123;AutoConfigurationExcludeFilter.class&#125;</span></span><br><span class="line"><span class="meta">)&#125;</span></span><br><span class="line"><span class="meta">)</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> SpringBootApplication &#123;</span><br></pre></td></tr></table></figure>
-
-
-
+<pre class=" language-java"><code class="language-java"><span class="token annotation punctuation">@Sp</span><span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>ElementType<span class="token punctuation">.</span>TYPE<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Inherited</span>
+<span class="token annotation punctuation">@SpringBootConfiguration</span>
+<span class="token annotation punctuation">@EnableAutoConfiguration</span>
+<span class="token annotation punctuation">@ComponentScan</span><span class="token punctuation">(</span>
+    excludeFilters <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span><span class="token annotation punctuation">@Filter</span><span class="token punctuation">(</span>
+    type <span class="token operator">=</span> FilterType<span class="token punctuation">.</span>CUSTOM<span class="token punctuation">,</span>
+    classes <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>TypeExcludeFilter<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token annotation punctuation">@Filter</span><span class="token punctuation">(</span>
+    type <span class="token operator">=</span> FilterType<span class="token punctuation">.</span>CUSTOM<span class="token punctuation">,</span>
+    classes <span class="token operator">=</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>AutoConfigurationExcludeFilter<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token punctuation">)</span>
+<span class="token keyword">public</span> @<span class="token keyword">interface</span> <span class="token class-name">SpringBootApplication</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span></code></pre>
 <ul>
 <li><blockquote>
 <p>@SpringBootConfiguration：spring-boot的配置</p>
 </blockquote>
 <ul>
-<li><pre><code class="java">//点开SpringBootConfiguration
-@Target(&#123;ElementType.TYPE&#125;)
+<li><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//点开SpringBootConfiguration</span>
+<span class="token annotation punctuation">@Target</span><span class="token punctuation">(</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>ElementType<span class="token punctuation">.</span>TYPE<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Retention</span><span class="token punctuation">(</span>RetentionPolicy<span class="token punctuation">.</span>RUNTIME<span class="token punctuation">)</span>
+<span class="token annotation punctuation">@Documented</span>
+<span class="token annotation punctuation">@Configuration</span>
+<span class="token keyword">public</span> @<span class="token keyword">interface</span> <span class="token class-name">SpringBootConfiguration</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token annotation punctuation">@AliasFor</span><span class="token punctuation">(</span>
+        annotation <span class="token operator">=</span> Configuration<span class="token punctuation">.</span><span class="token keyword">class</span>
+    <span class="token punctuation">)</span>
+    <span class="token keyword">boolean</span> <span class="token function">proxyBeanMethods</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">default</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+</code></pre>
+</li>
+<li><p>@Configuration：pring配置类</p>
+</li>
+<li><p>@Compnent：也是spring boot 的一个组件</p>
+</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><blockquote>
+<p>@EnableAutoConfiguration：自动配置</p>
+</blockquote>
+<ul>
+<li><pre class=" language-JAVA"><code class="language-JAVA">@Target(&#123;ElementType.TYPE&#125;)
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Configuration
-public @interface SpringBootConfiguration &#123;
-    @AliasFor(
-        annotation = Configuration.class
-    )
-    boolean proxyBeanMethods() default true;
-&#125;
+@Inherited
+@AutoConfigurationPackage
+@Import(&#123;AutoConfigurationImportSelector.class&#125;)
+public @interface EnableAutoConfiguration &#123;
+    String ENABLED_OVERRIDE_PROPERTY = "spring.boot.enableautoconfiguration";
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - @Configuration：pring配置类</span><br><span class="line"></span><br><span class="line">  - @Compnent：也是spring boot 的一个组件</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line">- &gt; @EnableAutoConfiguration：自动配置</span><br><span class="line"></span><br><span class="line">  - &#96;&#96;&#96;JAVA</span><br><span class="line">    @Target(&#123;ElementType.TYPE&#125;)</span><br><span class="line">    @Retention(RetentionPolicy.RUNTIME)</span><br><span class="line">    @Documented</span><br><span class="line">    @Inherited</span><br><span class="line">    @AutoConfigurationPackage</span><br><span class="line">    @Import(&#123;AutoConfigurationImportSelector.class&#125;)</span><br><span class="line">    public @interface EnableAutoConfiguration &#123;</span><br><span class="line">        String ENABLED_OVERRIDE_PROPERTY &#x3D; &quot;spring.boot.enableautoconfiguration&quot;;</span><br><span class="line">    </span><br><span class="line">        Class&lt;?&gt;[] exclude() default &#123;&#125;;</span><br><span class="line">    </span><br><span class="line">        String[] excludeName() default &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure></code></pre>
+    Class<?>[] exclude() default &#123;&#125;;
+
+    String[] excludeName() default &#123;&#125;;
+&#125;
+</code></pre>
 </li>
 <li><p>@AutoConfigurationPackage：自动配置包</p>
 </li>
@@ -453,15 +497,15 @@ public @interface SpringBootConfiguration &#123;
           
             <div class="post-nepre half previous">
           
-            <a href="/2020/10/24/life/" rel="prev">
+            <a href="/2020/10/24/web/" rel="prev">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
               </div>
               <span class="label">
               Previous Post</span>
               <div class="info">
                 <h3>
-                life</h3>
+                什么是前后端分离</h3>
                 <hr>
               </div>
             </a>
@@ -471,15 +515,15 @@ public @interface SpringBootConfiguration &#123;
           
             <div class="post-nepre half next">
           
-            <a href="/2020/10/24/web/" rel="next">
+            <a href="/2020/10/24/%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86%E5%95%86%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                什么是前后端分离</h3>
+                解决访问代理商问题</h3>
                 <hr>
               </div>
             </a>
@@ -553,7 +597,7 @@ public @interface SpringBootConfiguration &#123;
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
+      &copy; 2020 T<br>
       powered_by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
@@ -810,9 +854,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/tags">
-                  <i class="fa fa-tags" aria-hidden="true"></i>
-                  标签
+                <a href="/shuoshuo/">
+                  <i class="fa fa-commenting-o fa-commenting" aria-hidden="true"></i>
+                  说说
                 </a>
               </li>
             
@@ -1036,9 +1080,9 @@ $(document).ready(function() {
               </li>
             
               <li>
-                <a href="/tags">
-                  <i class="fa fa-tags" aria-hidden="true"></i>
-                  标签
+                <a href="/shuoshuo/">
+                  <i class="fa fa-commenting-o fa-commenting" aria-hidden="true"></i>
+                  说说
                 </a>
               </li>
             
