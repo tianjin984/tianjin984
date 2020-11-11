@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">什么是前后端分离 | TJ&#39;s blog</title>
+  <title itemprop="name">Nginx学习笔记 | TJ&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -336,23 +336,23 @@
 
   <div class="pattern-center single-center">
     <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
+    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/Nginx.jpg);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/Nginx.jpg">
     </div>
     <header class="pattern-header single-header">
       <h1 class="entry-title">
-      什么是前后端分离</h1>
+      Nginx学习笔记</h1>
       <p class="entry-census">
         <span>
-          <a href="tianjin20.cn">
+          <a href="">
             <img src="">
           </a>
         </span>
         <span>
-          <a href="tianjin20.cn">tianjin</a>
+          <a href=""></a>
         </span>
         <span class="bull">
         ·</span>
-        2020-10-24<span class="bull">
+        2020-11-11<span class="bull">
         ·</span>
       <span id="busuanzi_value_page_pv"></span>次阅读</p>
     </header>
@@ -366,30 +366,211 @@
         <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
         
         <div class="entry-content">
-          <blockquote>
-<p>概念:前端代码后端代码分开写</p>
+          <h1 id="Nginx笔记"><a href="#Nginx笔记" class="headerlink" title="Nginx笔记"></a>Nginx笔记</h1><blockquote>
+<p>Nginx:是一款<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%BD%BB%E9%87%8F%E7%BA%A7/10002835">轻量级</a>的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/Web/150564">Web</a> 服务器/<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/7793488">反向代理</a>服务器及<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%B5%E5%AD%90%E9%82%AE%E4%BB%B6/111106">电子邮件</a>（IMAP/POP3）代理服务器，在BSD-like 协议下发行,由俄罗斯人为应对Ramble而研发的</p>
 </blockquote>
-<p>非前后端分离会发生的问题</p>
-<ul>
-<li>传统web，前端由jsp开发，jsp非后端开发独立完成</li>
-<li><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/image-20201017220216561.png"></li>
-<li>前端–&gt;html静态页面–&gt;后端–&gt;jsp（后端可能看不懂前端）</li>
-<li><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/image-20201017220216561.png"></li>
+<h2 id="Nginx的特点："><a href="#Nginx的特点：" class="headerlink" title="Nginx的特点："></a>Nginx的特点：</h2><ul>
+<li>稳定性强，提供了丰富的配置实例，占用内存小，并发能力强</li>
 </ul>
 <blockquote>
-<p>前端只需要独立编写客户端代码，后端只需要独立编写服务器代码提供数据接口即可。</p>
+<p>Nginx的配置文件</p>
 </blockquote>
-<blockquote>
-<p>前端通过Ajax请求来访问后端的数据接口，将Model展现到View中即可</p>
-</blockquote>
-<blockquote>
-<p>前端开发者只需要提前约定好接口文档（url，参数，数据类型）分别独立开发，前端可以用假的数据进行测试，不依赖于后端，解耦，极大提高开发效率。</p>
-</blockquote>
-<p>前后端分离解决了一个问题</p>
-<ul>
-<li>那就是静态资源(页面)和动态资源(数据接口)的分离，以前的jsp因为是直接把数据嵌入页面的导致页面资源也是动态的，接下来需要引入cdn缓存的概念，涉及的是运维方面的知识，静态资源一旦进入缓存，是可以有效降低服务器的负载的，这才是重点，也就是性能的提升。</li>
+<pre class=" language-xml"><code class="language-xml">1.docker 创建Nginx的容器运行
+2.
+version: "3.1"
+services:
+ nginx:
+    restart: always
+    image: daocloud.io/library/nginx:latest    
+    container_name:nginx
+    ports:
+       - 80:80
+    volumes:
+       -/docker_nginx/conf.d/:/etc/nginx/conf.d</code></pre>
+<h2 id="正向代理"><a href="#正向代理" class="headerlink" title="正向代理"></a>正向代理</h2><p>客户端通过代理服务器访问到想要访问的网站（客户端设立：客户端了解代理服务器和目标服务器，正向代理可以突破访问权限，对目标服务器隐藏ip）</p>
+<pre><code>客户端---（直接访问 ×） --&gt;目标服务器  ×
+客户端---&gt;代理服务器----&gt;目标服务器  √</code></pre>
+<h2 id="反向代理："><a href="#反向代理：" class="headerlink" title="反向代理："></a>反向代理：</h2><ul>
+<li>反向代理是配置在服务器端的</li>
+<li>客户端不知道访问的是哪一台服务器</li>
+<li>达到负债均衡，隐藏服务器的真正地址</li>
 </ul>
-<p>所以前后端分离将一个单体应用拆分为两个独立的应用，前后端以json格式进行数据交互！！！！</p>
+<pre><code>客户端-----&gt;(反向代理服务器 解析)-----&gt;目标服务器</code></pre>
+<blockquote>
+<p>Nginx如何实现反向代理</p>
+</blockquote>
+<ul>
+<li>启动一个目标服务器</li>
+<li>编写Nginx的配置文件：通过Nginx访问到tomcat服务器</li>
+</ul>
+<pre class=" language-xml"><code class="language-xml">Nginx的配置文件信息解释
+server<span class="token entity" title="&#123;">&amp;#123;</span>
+    listen 80:
+    server_name localhost:
+    localtion/<span class="token entity" title="&#123;">&amp;#123;</span>
+        proxy_pass http://（目标服务器端口） //动态资源转发的目标
+<span class="token entity" title="&#125;">&amp;#125;</span>
+<span class="token entity" title="&#125;">&amp;#125;</span></code></pre>
+<h2 id="Nginx-的路径映射location"><a href="#Nginx-的路径映射location" class="headerlink" title="Nginx 的路径映射location"></a>Nginx 的路径映射location</h2><pre class=" language-json"><code class="language-json"><span class="token number">1</span>. # = 匹配
+location /&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    #精准匹配，主机名后面不能带任何字符串
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token number">2</span>. 通用匹配
+location /xxx&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    匹配所有以/xxx开头的路径
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token number">3</span>. 正则匹配    
+location ~ /xxx&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    匹配所有以/xxx开头的路径  //优先级大于第二种
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token number">4</span>. 匹配开头路径
+location ~/images/&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    匹配所有以/images开头的路径
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token number">5</span>. 匹配结尾的路径    
+location ~* \.(gif|jpg|png<span class="token punctuation">)</span>&amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    匹配以gifjpgpng结尾的路径    
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+
+</code></pre>
+<h2 id="location的优先级关系"><a href="#location的优先级关系" class="headerlink" title="location的优先级关系"></a>location的优先级关系</h2><blockquote>
+<ol>
+<li>等号类型（=）的优先级最高。一旦匹配成功，则不再查找其他匹配项。</li>
+<li>^~类型表达式。一旦匹配成功，则不再查找其他匹配项。</li>
+<li>正则表达式类型（~ ~*）的优先级次之。如果有多个location的正则能匹配的话，则使用正则表达式最长的那个。</li>
+<li>常规字符串匹配类型。按前缀匹配。</li>
+</ol>
+</blockquote>
+<h2 id="Nginx的负载均衡策略"><a href="#Nginx的负载均衡策略" class="headerlink" title="Nginx的负载均衡策略"></a>Nginx的负载均衡策略</h2><ul>
+<li>1.轮循方式：平均将请求发给服务器</li>
+<li>2.权重方式：根据服务器的权重值不同进行分配请求</li>
+<li>3.ip_hash：基于请求发起请客户端ip不同，会将请求发到指定的服务器上</li>
+</ul>
+<h2 id="Nginx负负载均衡配置"><a href="#Nginx负负载均衡配置" class="headerlink" title="Nginx负负载均衡配置"></a>Nginx负负载均衡配置</h2><ul>
+<li><p>1.实现轮训方式负债均衡</p>
+<pre class=" language-yml"><code class="language-yml">在Nginx配置文件中声明加入
+upstream my-server&#123;
+    server ip:端口
+    server 139.4.104.39:8080;  #我自己的服务器
+    server 139.4.104.39:8081;
+&#125;
+
+server&#123;
+    listen: 80 
+    server_name localhost;
+
+    location / &#123;
+        proxy_pass http://my-server/;
+    &#125;
+&#125;
+加入后重启
+第一次访问 139.4.104.39:8080  第二次访问： 139.4.104.39:8081
+但是并不是 010101进行响应 而是在这两个端口随机产生</code></pre>
+</li>
+<li><p>2.实现权重的负债均衡</p>
+<pre class=" language-xml"><code class="language-xml">在轮训的配置文件中加入weight 权重比列
+upstream my-server<span class="token entity" title="&#123;">&amp;#123;</span>
+    server ip:端口
+    server 139.4.104.39:8080 weight=10;  #我自己的服务器
+    server 139.4.104.39:8081 weight=2;
+<span class="token entity" title="&#125;">&amp;#125;</span>
+server<span class="token entity" title="&#123;">&amp;#123;</span>
+    listen: 80 
+    server_name localhost;
+
+    location / <span class="token entity" title="&#123;">&amp;#123;</span>
+        proxy_pass http://my-server/;
+    <span class="token entity" title="&#125;">&amp;#125;</span>
+<span class="token entity" title="&#125;">&amp;#125;</span>
+
+权重比值为5：1
+代表每6个请求5个访问server 139.4.104.39:8080 ，一个访问server 139.4.104.39:8081
+注意：请求少可能会没有差异，请求量大时就会很明显</code></pre>
+</li>
+<li><p>3.ip_hash负债均衡策略</p>
+<pre><code>直接加入ip_hash
+upstream my-server&#123;
+    ip_hash;
+    server ip:端口
+    server 139.4.104.39:8080 weight=10;  #我自己的服务器
+    server 139.4.104.39:8081 weight=2;
+&#125;
+server&#123;
+    listen: 80 
+    server_name localhost;
+
+    location / &#123;
+        proxy_pass http://my-server/;
+    &#125;
+&#125;
+第一次访问的就是之后一直访问的服务器地址</code></pre>
+</li>
+</ul>
+<h2 id="Nginx并发能力强的原因"><a href="#Nginx并发能力强的原因" class="headerlink" title="Nginx并发能力强的原因"></a>Nginx并发能力强的原因</h2><blockquote>
+<p>多进程模型</p>
+</blockquote>
+<p> nginx服务启动时，会自动创建一个master进程和多个worker进程，worder进程的数量依赖与nginx的配置，一般是cpu的核数，过 多的worker进程带来cpu的资源竞争和上下文切换。master进程负责创建和管理worker进程，除此之外master进程还负责nginx配 置解析、信号管理、模块注册等工作。worker进程负责接收和处理客户端的请求，worker进程才是nginx服务的主体。</p>
+<blockquote>
+<p>异步非阻塞</p>
+</blockquote>
+<p> worker进程采用异步非阻塞的方式对外提供服务。具体来说就是，workder进程在处理客户端请求时会进行IO调用，如果调用不能立即 得到响应，worker进程也不会一直等待，而是转去处理其他客户端请求。当IO调用有结果时会主动通知worker进程，worker进程得到通知便会 暂停手上的工作，来处理IO调用的返回结果。</p>
+<blockquote>
+<p>事件驱动模型</p>
+</blockquote>
+<p> IO调用完成后如何主动通知worker进程，靠的就是事件驱动模型，事件驱动模型提供了一种机制，使得worker进程不用关心IO调用的状态，IO调 用完全由事件驱动模型来管理，事件准备好后就通知worker进程事件已经就绪。事件驱动模型由事件收集器、事件发送器、事件处理器构成。事件发送器每发 送一个请求，目标对象就将其放入待处理的事件列表，然后使用非阻塞IO方式调用事件处理器来对该事件进行处理。 这个过程离不开事件驱动处理库，也叫多路IO复用方法，常见的有select模型、poll模型、epoll模型。</p>
+<h2 id="Nginx动静分离"><a href="#Nginx动静分离" class="headerlink" title="Nginx动静分离"></a>Nginx动静分离</h2><blockquote>
+<p>Nginx的并发能力公式</p>
+<p>worker_processes*worker_connection/4 | 2  =Nginx     最终并发能力</p>
+<p>动态需要/4  静态资源在Nginx里 /2</p>
+</blockquote>
+<ul>
+<li><p>Nginx动态资源代理</p>
+<pre><code>location / &#123;
+    proxy_pass 路径;
+&#125;</code></pre>
+</li>
+<li><p>静态资源代理</p>
+<pre class=" language-json"><code class="language-json">location / &amp;#<span class="token number">123</span><span class="token punctuation">;</span>
+    proxy_pass 静态资源路径<span class="token punctuation">;</span>
+    index 默认访问路径下的什么资源；
+    autoindex on：代表静态资源的全部内容，以列表的形式展开
+&amp;#<span class="token number">125</span><span class="token punctuation">;</span>
+
+#首先要修改docker ，添加一个数据卷，映射到nginx服务器的一个目录内容如下
+  volumes<span class="token operator">:</span>
+       -/docker_nginx/conf.d/<span class="token operator">:</span>/etc/nginx/conf.d
+       -/docker_nginx/img/<span class="token operator">:</span>/etc/nginx/img  映射图片
+       -/docker_nginx/html/<span class="token operator">:</span>/etc/nginx/html 映射页面
+#保存退出
+</code></pre>
+<pre class=" language-xml"><code class="language-xml">upstream my-server<span class="token entity" title="&#123;">&amp;#123;</span>
+    ip_hash;
+    server ip:端口
+    server 139.4.104.39:8080 weight=10;  #我自己的服务器
+    server 139.4.104.39:8081 weight=2;
+<span class="token entity" title="&#125;">&amp;#125;</span>
+server<span class="token entity" title="&#123;">&amp;#123;</span>
+    listen 80:
+    server_name localhost:
+    location /html<span class="token entity" title="&#123;">&amp;#123;</span>
+        root /data;
+        index index.html;
+<span class="token entity" title="&#125;">&amp;#125;</span>    
+    location /img<span class="token entity" title="&#123;">&amp;#123;</span>
+        root /data;
+        autoindex on;
+<span class="token entity" title="&#125;">&amp;#125;</span>
+<span class="token entity" title="&#125;">&amp;#125;</span></code></pre>
+</li>
+</ul>
+<h2 id="Nginx集群搭建"><a href="#Nginx集群搭建" class="headerlink" title="Nginx集群搭建"></a>Nginx集群搭建</h2><blockquote>
+<p>为避免Nginx单点故障导致整个程序崩溃</p>
+<p>准备多个Nginx服务器</p>
+<p>我们需要准备keepalived监控每个Nginx的状况</p>
+<p>准备一个haproxy，提供一个虚拟的路径，统一接受用户的请求</p>
+</blockquote>
+<p>搭建准备</p>
+<p>- </p>
 
         </div>
         <!-- .entry-content -->
@@ -418,36 +599,19 @@
       <div class="toc" style="background: none;"></div>
       <section class="post-squares nextprev">
         
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/10/24/%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86%E5%95%86%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                解决访问代理商问题</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
         
           
-            <div class="post-nepre half next">
+            <div class="post-nepre full next">
           
-            <a href="/2020/10/24/yaml%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BD%93%E7%B1%BB%E8%B5%8B%E5%80%BC/" rel="next">
+            <a href="/2020/11/01/themef/" rel="next">
               <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg">
+                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="">
               </div>
               <span class="label">
               Next Post</span>
               <div class="info">
                 <h3>
-                yaml文件实体类赋值</h3>
+                </h3>
                 <hr>
               </div>
             </a>
@@ -471,16 +635,16 @@
 
       <section class="author-profile">
         <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="tianjin20.cn" class="profile gravatar"><img src="" itemprop="image" alt="tianjin" height="70" width="70"></a>
+          <a href="" class="profile gravatar"><img src="" itemprop="image" alt="" height="70" width="70"></a>
           <div class="meta">
             <span class="title">TianJin</span>
             <h3 itemprop="name">
-            <a href="tianjin20.cn" itemprop="url" rel="author">tianjin</a>
+            <a href="" itemprop="url" rel="author"></a>
             </h3>
           </div>
         </div>
         <hr>
-        <p><i class="iconfont icon-write"></i>我比较懒</p>
+        <p><i class="iconfont icon-write"></i></p>
       </section>
     </main><!-- #main -->
   </div><!-- #primary -->

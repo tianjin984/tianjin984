@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
   
-  <title itemprop="name">什么是前后端分离 | TJ&#39;s blog</title>
+  <title itemprop="name">TJ&#39;s blog</title>
   
     <link rel="shortcut icon" href="/images/favicon.ico">
   
@@ -330,164 +330,214 @@
   </div>
 </header>
 
-      <link rel="stylesheet" type="text/css" href="/css/sharejs.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.4.2/tocbot.css">
-<div class="pattern-center-blank"></div>
-
-  <div class="pattern-center single-center">
-    <!-- 有配图默认渲染第一张 -->
-    <div class="pattern-attachment-img lazyload" style="background-image: url(https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png);" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
-    </div>
-    <header class="pattern-header single-header">
-      <h1 class="entry-title">
-      什么是前后端分离</h1>
-      <p class="entry-census">
-        <span>
-          <a href="tianjin20.cn">
-            <img src="">
-          </a>
-        </span>
-        <span>
-          <a href="tianjin20.cn">tianjin</a>
-        </span>
-        <span class="bull">
-        ·</span>
-        2020-10-24<span class="bull">
-        ·</span>
-      <span id="busuanzi_value_page_pv"></span>次阅读</p>
-    </header>
-  </div>
-
+      <div class="blank" style="padding-top: 0px;"></div>
 <div id="content" class="site-content">
+  
+  <div class="notice" style="margin-top:60px">
+    <i class="iconfont icon-notification">
+    </i>
+    <div class="notice-content">我等了很久，却不见神的痕迹。</div>
+  </div>
+  
+  <div class="top-feature-row">
+  <h1 class="fes-title" style="font-family: 'Ubuntu', sans-serif;">
+  <i class="fa fa-anchor" aria-hidden="true">
+  </i>
+  Another Hobby</h1>
+  
+  <div class="top-feature-v2">
+    <div class="the-feature square from_left_and_right">
+      <a href="https://home.cnblogs.com/u/tianjin" target="_blank">
+        <div class="img">
+          <img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/hello.jpg">
+        </div>
+        <div class="info">
+          <h3>博客园</h3>
+          <p>(o≖◡≖)/ 博主的博客园~</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="top-feature-v2">
+    <div class="the-feature square from_left_and_right">
+      <a href="https://space.bilibili.com/34935344" target="_blank">
+        <div class="img">
+          <img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/33.png">
+        </div>
+        <div class="info">
+          <h3>小田的Bilibili</h3>
+          <p>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+  <div class="top-feature-v2">
+    <div class="the-feature square from_left_and_right">
+      <a href="/shuoshuo/" target="_blank">
+        <div class="img">
+          <img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/长发初音未来公主殿下4k壁纸_彼岸图网.jpg">
+        </div>
+        <div class="info">
+          <h3>我的日常（动态）</h3>
+          <p>记录我的私人生活( ° △ °|||)︴</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  
+</div>
   <div id="primary" class="content-area">
     <main id="main" class="site-main" role="main">
-      <article id="post-1" class="post-1 post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized">
-        <div class="toc"></div>
-        <!--<div class="toc-entry-content"><!-- 套嵌目录使用（主要为了支援评论）-->
-        
-        <div class="entry-content">
-          <blockquote>
-<p>概念:前端代码后端代码分开写</p>
-</blockquote>
-<p>非前后端分离会发生的问题</p>
-<ul>
-<li>传统web，前端由jsp开发，jsp非后端开发独立完成</li>
-<li><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/image-20201017220216561.png"></li>
-<li>前端–&gt;html静态页面–&gt;后端–&gt;jsp（后端可能看不懂前端）</li>
-<li><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/image-20201017220216561.png"></li>
-</ul>
-<blockquote>
-<p>前端只需要独立编写客户端代码，后端只需要独立编写服务器代码提供数据接口即可。</p>
-</blockquote>
-<blockquote>
-<p>前端通过Ajax请求来访问后端的数据接口，将Model展现到View中即可</p>
-</blockquote>
-<blockquote>
-<p>前端开发者只需要提前约定好接口文档（url，参数，数据类型）分别独立开发，前端可以用假的数据进行测试，不依赖于后端，解耦，极大提高开发效率。</p>
-</blockquote>
-<p>前后端分离解决了一个问题</p>
-<ul>
-<li>那就是静态资源(页面)和动态资源(数据接口)的分离，以前的jsp因为是直接把数据嵌入页面的导致页面资源也是动态的，接下来需要引入cdn缓存的概念，涉及的是运维方面的知识，静态资源一旦进入缓存，是可以有效降低服务器的负载的，这才是重点，也就是性能的提升。</li>
-</ul>
-<p>所以前后端分离将一个单体应用拆分为两个独立的应用，前后端以json格式进行数据交互！！！！</p>
-
-        </div>
-        <!-- .entry-content -->
-        <div class="single-reward">
-          <div class="reward-open">赏
-            <div class="reward-main">
-              <ul class="reward-row">
-                <li class="alipay-code"><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/Screenshot_20201025_012848_com.eg.android.AlipayG.png"></li>
-                <li class="wechat-code"><img src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/Screenshot_20201024_154959_com.tencent.mm.png"></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div style="text-align:center; width: 100%" class="social-share share-mobile" data-disabled="diandian, tencent"></div>
-        <footer class="post-footer">
-          <div class="post-lincenses"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="nofollow"><i class="fa fa-creative-commons" aria-hidden="true"></i> 知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a></div>
-          <div class="post-tags">
-          </div>
-          <div class="post-share">
-            <div class="social-share sharehidden share-component"></div>
-            <i class="iconfont show-share icon-forward"></i>
-          </div>
-        </footer><!-- .entry-footer -->
-      </article>
-      <!-- #post-## -->
-      <div class="toc" style="background: none;"></div>
-      <section class="post-squares nextprev">
-        
-          
-            <div class="post-nepre half previous">
-          
-            <a href="/2020/10/24/%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%90%86%E5%95%86%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" rel="prev">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/海盗 船长 超新星 猴子 海贼王3440x1440壁纸_彼岸图网.jpg">
-              </div>
-              <span class="label">
-              Previous Post</span>
-              <div class="info">
-                <h3>
-                解决访问代理商问题</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-        
-          
-            <div class="post-nepre half next">
-          
-            <a href="/2020/10/24/yaml%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BD%93%E7%B1%BB%E8%B5%8B%E5%80%BC/" rel="next">
-              <div class="background">
-                <img class="lazyload" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg" style="width: 100%; height: 100%; object-fit: cover; pointer-events: none;" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg">
-              </div>
-              <span class="label">
-              Next Post</span>
-              <div class="info">
-                <h3>
-                yaml文件实体类赋值</h3>
-                <hr>
-              </div>
-            </a>
-          </div>
-        
-      </section>
+      <h1 class="main-title" style="font-family: 'Ubuntu', sans-serif;">
+      <i class="fa fa-envira" aria-hidden="true"></i>
+      我的博客记录</h1>
       
-  <script src='/js/Valine.min.js'></script>
-  <div id="vcomments"></div>
-  <script>
-  new Valine({
-      el: '#vcomments' ,
-      appId: 'o1SS2iygHF9V1krPwTsFPpIt-MdYXbMMI',
-      appKey: 'dks1tvTuKKj8gpU5LMvtSguO',
-      notify:false, 
-      verify:false, 
-      avatar:'mp', 
-      placeholder: 'just go go' 
-  });
-  </script>
+  <!-- 首页默认取最最新文章集 -->
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
 
-      <section class="author-profile">
-        <div class="info" itemprop="author" itemscope="" itemtype="https://schema.org/Person">
-          <a href="tianjin20.cn" class="profile gravatar"><img src="" itemprop="image" alt="tianjin" height="70" width="70"></a>
-          <div class="meta">
-            <span class="title">TianJin</span>
-            <h3 itemprop="name">
-            <a href="tianjin20.cn" itemprop="url" rel="author">tianjin</a>
-            </h3>
-          </div>
+  <div class="post-thumb">
+    <a href="/2020/10/24/web/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/weiian.png">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-10-24 17:10</div>
+      <a href="/2020/10/24/web/" class="post-title">
+        <h3>什么是前后端分离</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/%E5%AD%A6%E4%B9%A0/">学习<em>·</em></a>
+          
+            <a href="/tags/%E6%82%A6%E8%AF%BB/">悦读<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p>编程基础</p>
+        <div class="post-bottom">
+          <a href="/2020/10/24/web/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
         </div>
-        <hr>
-        <p><i class="iconfont icon-write"></i>我比较懒</p>
-      </section>
-    </main><!-- #main -->
-  </div><!-- #primary -->
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/10/24/yaml%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BD%93%E7%B1%BB%E8%B5%8B%E5%80%BC/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-10-24 17:10</div>
+      <a href="/2020/10/24/yaml%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BD%93%E7%B1%BB%E8%B5%8B%E5%80%BC/" class="post-title">
+        <h3>yaml文件实体类赋值</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/%E5%AD%A6%E4%B9%A0/">学习<em>·</em></a>
+          
+            <a href="/tags/%E6%82%A6%E8%AF%BB/">悦读<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p>编程基础</p>
+        <div class="post-bottom">
+          <a href="/2020/10/24/yaml%E6%96%87%E4%BB%B6%E5%AE%9E%E4%BD%93%E7%B1%BB%E8%B5%8B%E5%80%BC/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+    
+<article  class="post post-list-thumb post-list-thumb-left"  class="post post-list-thumb" itemscope="" itemtype="https://schema.org/BlogPosting">
+
+  <div class="post-thumb">
+    <a href="/2020/10/24/english/">
+      <img class="lazyload" onerror="imgError(this,3)" src="https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/loader/orange.progress-bar-stripe-loader.svg" data-src="https://cdn.jsdelivr.net/gh/tianjin984/images/img/天使少女 Sakuraӣ 4k动漫壁纸_彼岸图网.jpg">
+    </a>
+  </div>
+  <div class="post-content-wrap">
+    <div class="post-content">
+      <div class="post-date">
+        <i class="iconfont icon-time">
+        </i>2020-10-24 17:10</div>
+      <a href="/2020/10/24/english/" class="post-title">
+        <h3>英语学习笔记</h3>
+      </a>
+      <div class="post-meta">
+        <span><i class="fa fa-tags"></i>
+        
+            <a href="/tags/%E5%AD%A6%E4%B9%A0/">学习<em>·</em></a>
+          
+            <a href="/tags/%E6%82%A6%E8%AF%BB/">悦读<em>·</em></a>
+          
+        </span>
+        <span>
+          <i class="iconfont icon-file"></i>
+          
+            <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>
+          
+        </span>
+      </div>
+      <div class="float-content">
+        <p>英语</p>
+        <div class="post-bottom">
+          <a href="/2020/10/24/english/" class="button-normal">
+            <i class="iconfont icon-caidan"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+  
+
+
+    </main>
+      <!-- 首页默认取最最新文章集 -->
+    
+      <nav class="navigator">
+        
+        <a class="extend prev" rel="prev" href="/">Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      </nav>
+    
+  </div>
+  
 </div>
-
-
-
 
     </div>    
     <div class="ins-search">
